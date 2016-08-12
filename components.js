@@ -19,7 +19,9 @@ export class BeerListContainer extends Component {
     }
     
     addItem(name) {
-        // do nothing for now
+        this.setState({
+            beers: [].concat(this.state.beers).concat([name])
+        });
     }
     
 }
