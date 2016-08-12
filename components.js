@@ -17,6 +17,11 @@ export class BeerListContainer extends Component {
             </div>
         )
     }
+    
+    addItem(name) {
+        // do nothing for now
+    }
+    
 }
 
 export class InputArea extends Component {
