@@ -18,4 +18,10 @@ describe('BeerListContainer', () => {
         expect(wrapper.state('beers')).to.eql([]);
     });
     
+    it('adds items to list', () => {
+        const wrapper = shallow(<BeerListContainer/>);
+        wrapper.addItem('yonayona');
+        expect(wrapper.state('beers')).to.eql(['yonayona']);
+    });
+    
 });
