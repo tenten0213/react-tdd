@@ -39,3 +39,7 @@ export class BeerList extends Component {
         return <ul/>
     }
 }
+
+InputArea.PropTypes = {
+    onSubmit: React.PropTypes.func.isRequired
+};
