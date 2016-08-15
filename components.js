@@ -20,6 +20,8 @@ export class BeerListContainer extends Component {
     
     addItem(name) {
         this.setState({
+            // 既存の状態(state)を弄らずに、空の配列に元の状態を突っ込んで、それにnameを追加している
+            // Reduxを使う場合は常に確実にレンダリングビューとを現在の状態と同期させることができるため、重要なtips
             beers: [].concat(this.state.beers).concat([name])
         });
     }
