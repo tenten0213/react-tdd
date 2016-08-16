@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export class BeerListContainer extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +9,7 @@ export class BeerListContainer extends Component {
         };
         this.addItem = this.addItem.bind(this);
     }
-    
+
     render() {
         return (
             <div>
@@ -18,7 +18,7 @@ export class BeerListContainer extends Component {
             </div>
         )
     }
-    
+
     addItem(name) {
         this.setState({
             // 既存の状態(state)を弄らずに、空の配列に元の状態を突っ込んで、それにnameを追加している
@@ -26,7 +26,7 @@ export class BeerListContainer extends Component {
             beers: [].concat(this.state.beers).concat([name])
         });
     }
-    
+
 }
 
 export class InputArea extends Component {
@@ -38,15 +38,15 @@ export class InputArea extends Component {
         this.setText = this.setText.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
-    
+
     setText(event) {
         this.setState({text: event.target.value});
     }
-    
+
     handleClick() {
         this.props.onSubmit(this.state.text);
     }
-    
+
     render() {
         return (
             <div>
@@ -59,9 +59,19 @@ export class InputArea extends Component {
 
 export class BeerList extends Component {
     render() {
-        return <ul/>
+        return this.props.items ?
+            (<ul>
+                {this.props.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>)
+            : null;
     }
 }
+
+BeerList.propTypes = {
+    items: React.PropTypes.array.isRequired
+};
 
 InputArea.PropTypes = {
     onSubmit: React.PropTypes.func.isRequired
