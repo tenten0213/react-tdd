@@ -5,8 +5,9 @@ export class BeerListContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        beers: []
+            beers: []
         };
+        this.addItem = this.addItem.bind(this);
     }
     
     render() {
