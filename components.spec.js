@@ -41,6 +41,24 @@ describe('BeerListContainer', () => {
     
 });
 
+describe('BeerList', () => {
+    it('should render zero items', () => {
+        const wrapper = shallow(<BeerList items={[]}/>);
+        expect(wrapper.find('li')).to.have.length(0);
+    });
+    
+    it('should render undefined itmes', () => {
+        const wrapper = shallow(<BeerList items={undefined}/>);
+        expect(wrapper.find('li')).to.have.length(0);
+    });
+    
+    it('should render some items', () => {
+        const items = ['Sam Adams', 'Resin', 'Octoverfest'];
+        const wrapper = shallow(<BeerList items={items}/>);
+        expect(wrapper.find('li')).to.have.length(3);
+    });
+});
+
 describe('InputArea', () => {
     it('should contain an input and a button', () => {
         const wrapper = shallow(<InputArea/>);
