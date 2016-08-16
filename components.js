@@ -36,7 +36,7 @@ export class InputArea extends Component {
                 <input/>
                 <button>Add</button>
             </div>
-            ) ;
+        );
     }
 }
 
